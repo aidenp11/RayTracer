@@ -1,6 +1,9 @@
 #include "Scene.h"
 #include "Canvas.h"
 #include "MathUtils.h"
+#include "Random.h"
+#include <iostream>
+#include <iomanip>
 
 void Scene::Render(Canvas& canvas, int numSamples)
 {
@@ -17,7 +20,7 @@ void Scene::Render(Canvas& canvas, int numSamples)
 
 			for (int i = 0; i < numSamples; i++)
 			{
-				glm::vec2 point = pixel / glm::vec2(canvas.GetSize());
+				glm::vec2 point = (pixel + glm::vec2{ random01(), random01() }) / glm::vec2(canvas.GetSize());
 				// flip y
 				point.y = 1.0f - point.y;
 
@@ -77,7 +80,7 @@ color3_t Scene::Trace(const ray_t& ray, float minDistance, float maxDistance, ra
 		}
 		else
 		{
-			return color3_t{ 0, 0, 0 };
+			return raycastHit.material->GetEmissive();
 		}
 	}
 

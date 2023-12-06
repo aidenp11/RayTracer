@@ -2,6 +2,8 @@ C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Camera.cpp;C:\Users\ap
 C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Canvas.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Canvas.obj
 C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Main.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Main.obj
 C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Material.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Material.obj
+C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Plane.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Plane.obj
 C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Renderer.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Renderer.obj
 C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Scene.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Scene.obj
 C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Sphere.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Sphere.obj
+C:\Users\apatrick\source\repos\RayTracer\Source\RayTracer\Triangle.cpp;C:\Users\apatrick\source\repos\RayTracer\Temp\Triangle.obj
