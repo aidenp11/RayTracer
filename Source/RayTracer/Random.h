@@ -1,22 +1,41 @@
 #pragma once
 #include <cstdlib>
 #include <algorithm>
+#include <glm/glm.hpp>
+#include <glm/gtx/norm.hpp>
 
-void seedRandom(unsigned int seed)
+inline void seedRandom(unsigned int seed)
 {
 	std::srand(seed);
 }
 
-float random01()
+inline float random01()
 {
 	return static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
 }
 
-float random(float min, float max)
+inline float random(float min, float max)
 {
     if (min > max) {
         std::swap(min, max); 
     }
 
     return min + (random01() * (max - min));
+}
+
+inline glm::vec3 random(const glm::vec3& min, const glm::vec3& max)
+{
+	return glm::vec3(random(min.x, max.x), random(min.y, max.y), random(min.z, max.z));
+}
+
+inline glm::vec3 randomInUnitSphere()
+{
+	glm::vec3 v;
+	// generate random vectors between -1 <-> +1, return vector if length is less than 1
+	do
+	{
+		v = glm::vec3(random(-1, 1), random(-1, 1), random(-1, 1));
+	} while (glm::length2(v) >= 1.0f);
+
+		return v;
 }

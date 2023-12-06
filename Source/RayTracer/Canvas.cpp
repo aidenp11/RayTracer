@@ -17,7 +17,7 @@ Canvas::~Canvas()
 {
 	if (m_texture != nullptr) {
 		SDL_DestroyTexture(m_texture);
-		m_texture = nullptr; 
+		//m_texture = nullptr; 
 	}
 }
 

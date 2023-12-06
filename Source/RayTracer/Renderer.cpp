@@ -13,8 +13,8 @@ bool Renderer::Initialize()
 
 void Renderer::Shutdown()
 {
-	if (m_window == nullptr) delete m_window;
-	if (m_renderer == nullptr) delete m_renderer;
+	if (m_window) SDL_DestroyWindow(m_window);
+	if (m_renderer) SDL_DestroyRenderer(m_renderer);
 
 	SDL_Quit();
 }
