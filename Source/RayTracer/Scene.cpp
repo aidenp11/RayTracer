@@ -152,10 +152,34 @@ void Scene::InitScene03(Scene& scene, const Canvas& canvas)
 	scene.SetCamera(camera);
 
 	auto floor = std::make_unique<Mesh>(std::make_shared<Lambertian>(color3_t{ 1, 1, 1 }));
-	floor->Load("models/quaad.obj", glm::vec3{ 0, 0.3, 7.3 }, glm::vec3{ -90, 0, 0 }, glm::vec3{ 1.2, 2, 1 });
+	floor->Load("models/quaad.obj", glm::vec3{ 0, 0.3, 7 }, glm::vec3{ -95, 0, 0 }, glm::vec3{ 1.1, 2, 1 });
 	scene.AddObject(std::move(floor));
 
 	auto ceiling = std::make_unique<Mesh>(std::make_shared<Lambertian>(color3_t{ 1, 1, 1 }));
-	ceiling->Load("models/quaad.obj", glm::vec3{ 0, 0.7, 7.3 }, glm::vec3{ 90, 0, 0 }, glm::vec3{ 1.2, 2, 1 });
+	ceiling->Load("models/quaad.obj", glm::vec3{ 0, 1.1, 7 }, glm::vec3{ 85, 0, 0 }, glm::vec3{ 1.1, 3.2, 1 });
 	scene.AddObject(std::move(ceiling));
+
+	auto backwall = std::make_unique<Mesh>(std::make_shared<Lambertian>(color3_t{ 1, 1, 1 }));
+	backwall->Load("models/quaad.obj", glm::vec3{ 0, 0.5, 6 }, glm::vec3{ 0, 0, 0 }, glm::vec3{ 2, 1.55, 1 });
+	scene.AddObject(std::move(backwall));
+
+	auto leftwall = std::make_unique<Mesh>(std::make_shared<Lambertian>(color3_t{ 1, 0, 0 }));
+	leftwall->Load("models/quaad.obj", glm::vec3{ -0.53, 0.4, 7 }, glm::vec3{ 0, 90, 0 }, glm::vec3{ 2, 1.55, 1 });
+	scene.AddObject(std::move(leftwall));
+
+	auto rightwall = std::make_unique<Mesh>(std::make_shared<Lambertian>(color3_t{ 0, 1, 0 }));
+	rightwall->Load("models/quaad.obj", glm::vec3{ 0.53, 0.4, 7 }, glm::vec3{ 0, -90, 0 }, glm::vec3{ 2, 1.55, 1 });
+	scene.AddObject(std::move(rightwall));
+
+	auto light = std::make_unique<Mesh>(std::make_shared<Emissive>(color3_t{ 1, 1, 1 }, 4));
+	light->Load("models/quaad.obj", glm::vec3{ 0, 1.1, 7 }, glm::vec3{ 85, 0, 0 }, glm::vec3{ 0.3, 0.3, 0.3 });
+	scene.AddObject(std::move(light));
+
+	auto box = std::make_unique<Mesh>(std::make_shared<Dielectric>(color3_t{ 1 }, 1.5f));
+	box->Load("models/cube.obj", glm::vec3{ -0.2, 0.3, 6.6 }, glm::vec3{ 0, 30, 0 }, glm::vec3{ 0.3, 0.7, 0.3 });
+	scene.AddObject(std::move(box));
+
+	auto ball = std::make_unique<Sphere>(glm::vec3{ 0.2, 0.46, 7.2}, 0.15, std::make_shared<Metal>(color3_t{ 0.5 }, 0.1f));
+	scene.AddObject(std::move(ball));
 }
+
